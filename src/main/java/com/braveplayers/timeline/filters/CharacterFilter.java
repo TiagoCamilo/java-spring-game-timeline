@@ -1,9 +1,9 @@
 package com.braveplayers.timeline.filters;
 
-import com.braveplayers.timeline.dtos.CharacterDto;
+import com.braveplayers.timeline.entities.Character;
 
 public interface CharacterFilter {
-    boolean support(CharacterDto oldCharacter, CharacterDto newCharacter);
+    boolean support(Character oldCharacter, Character newCharacter);
 
-    String process(CharacterDto oldCharacter, CharacterDto newCharacter);
+    String process(Character oldCharacter, Character newCharacter);
 }

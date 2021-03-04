@@ -1,4 +1,4 @@
-package com.braveplayers.timeline.dtos;
+package com.braveplayers.timeline.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CharacterDto {
+public class Character {
     private Integer id;
     private String name;
     private Integer level;

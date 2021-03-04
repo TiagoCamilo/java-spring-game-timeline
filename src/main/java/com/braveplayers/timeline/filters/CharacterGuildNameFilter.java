@@ -1,15 +1,15 @@
 package com.braveplayers.timeline.filters;
 
-import com.braveplayers.timeline.dtos.CharacterDto;
+import com.braveplayers.timeline.entities.Character;
 
 public class CharacterGuildNameFilter implements CharacterFilter {
     @Override
-    public boolean support(CharacterDto oldCharacter, CharacterDto newCharacter) {
+    public boolean support(Character oldCharacter, Character newCharacter) {
         return !oldCharacter.getGuildName().equals(newCharacter.getGuildName());
     }
 
     @Override
-    public String process(CharacterDto oldCharacter, CharacterDto newCharacter) {
+    public String process(Character oldCharacter, Character newCharacter) {
         return "Changed Guild from " +
                 oldCharacter.getGuildName() +
                 " to " +

@@ -1,6 +1,6 @@
 package com.braveplayers.timeline.filters;
 
-import com.braveplayers.timeline.dtos.CharacterDto;
+import com.braveplayers.timeline.entities.Character;
 import com.braveplayers.timeline.entities.Register;
 import com.braveplayers.timeline.services.RegisterService;
 
@@ -15,7 +15,7 @@ public class CharacterFilterManager {
         this.registerService = registerService;
     }
 
-    public void execute(CharacterDto oldCharacter, CharacterDto newCharacter) {
+    public void execute(Character oldCharacter, Character newCharacter) {
         filters
                 .stream()
                 .filter(filter -> filter.support(oldCharacter, newCharacter))

@@ -1,6 +1,5 @@
 package com.braveplayers.timeline.entities;
 
-import com.braveplayers.timeline.dtos.CharacterDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +16,7 @@ public class Register {
 
     @Id
     private String id;
-    private CharacterDto character;
+    private Character character;
     private String message;
 
 }
