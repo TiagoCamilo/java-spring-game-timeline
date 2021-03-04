@@ -16,4 +16,7 @@ public class Register {
     private String id;
     private String content;
 
+    public Register(String content) {
+        this.content = content;
+    }
 }
