@@ -19,7 +19,13 @@ public class CharacterFilterManager {
         filters
                 .stream()
                 .filter(filter -> filter.support(oldCharacter, newCharacter))
-                .map(filter -> new Register(filter.process(oldCharacter, newCharacter)))
+                .map(filter -> filter.process(oldCharacter, newCharacter))
+                .map(processResult -> Register
+                        .builder()
+                        .character(newCharacter)
+                        .message(processResult)
+                        .build()
+                )
                 .forEach(register ->
                         registerService.save(register).subscribe()
                 );
