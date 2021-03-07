@@ -20,9 +20,10 @@ public class RegisterControllers {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping
     public Flux<Register> findAll() {
-        return service.findAll();
+        return service.findAll().log();
     }
 
     @PostMapping
