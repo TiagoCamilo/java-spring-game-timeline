@@ -1,5 +1,6 @@
 package com.braveplayers.timeline.entities;
 
+import com.braveplayers.timeline.enums.RegisterType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,9 @@ public class Register {
 
     @Id
     private String id;
+    private RegisterType type;
+    private String world;
     private Character character;
-    private String message;
-
+    private String oldValue;
+    private String newValue;
 }

@@ -23,7 +23,7 @@ public class CharacterFilterManager {
                 .map(processResult -> Register
                         .builder()
                         .character(newCharacter)
-                        .message(processResult)
+//                        .message(processResult)
                         .build()
                 )
                 .forEach(register ->
