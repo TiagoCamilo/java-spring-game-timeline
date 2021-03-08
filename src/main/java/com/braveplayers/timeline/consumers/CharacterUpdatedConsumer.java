@@ -1,7 +1,7 @@
 package com.braveplayers.timeline.consumers;
 
 import com.braveplayers.timeline.dtos.CharacterUpdatedMessageDto;
-import com.braveplayers.timeline.filters.CharacterHandlersManager;
+import com.braveplayers.timeline.handlers.CharacterHandlersManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

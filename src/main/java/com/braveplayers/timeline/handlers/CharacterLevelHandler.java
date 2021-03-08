@@ -1,4 +1,4 @@
-package com.braveplayers.timeline.filters;
+package com.braveplayers.timeline.handlers;
 
 import com.braveplayers.timeline.entities.Character;
 
