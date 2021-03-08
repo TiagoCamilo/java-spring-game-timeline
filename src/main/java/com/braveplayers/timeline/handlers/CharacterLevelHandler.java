@@ -7,7 +7,8 @@ import com.braveplayers.timeline.enums.RegisterType;
 public class CharacterLevelHandler implements CharacterHandler {
     @Override
     public boolean support(Character oldCharacter, Character newCharacter) {
-        return !oldCharacter.getLevel().equals(newCharacter.getLevel());
+        return !oldCharacter.getLevel().equals(newCharacter.getLevel())
+                && newCharacter.getLevel() >= 100;
     }
 
     @Override

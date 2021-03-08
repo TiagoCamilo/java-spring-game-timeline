@@ -16,8 +16,8 @@ public class CharacterGuildNameHandler implements CharacterHandler {
                 .type(RegisterType.CHARACTER_GUILD_UPDATED)
                 .worldName(newCharacter.getWorldName())
                 .character(newCharacter)
-                .newValue(newCharacter.getLevel().toString())
-                .oldValue(oldCharacter.getLevel().toString())
+                .newValue(newCharacter.getGuildName())
+                .oldValue(oldCharacter.getGuildName())
                 .build();
     }
 }
