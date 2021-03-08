@@ -22,7 +22,7 @@ public class Register {
     private String id;
     private RegisterType type;
     private LocalDateTime dateTime = LocalDateTime.now();
-    private String world;
+    private String worldName;
     private Character character;
     private String oldValue;
     private String newValue;

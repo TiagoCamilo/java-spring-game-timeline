@@ -1,6 +1,8 @@
 package com.braveplayers.timeline.handlers;
 
 import com.braveplayers.timeline.entities.Character;
+import com.braveplayers.timeline.entities.Register;
+import com.braveplayers.timeline.enums.RegisterType;
 
 public class CharacterGuildNameHandler implements CharacterHandler {
     @Override
@@ -9,10 +11,13 @@ public class CharacterGuildNameHandler implements CharacterHandler {
     }
 
     @Override
-    public String process(Character oldCharacter, Character newCharacter) {
-        return "Changed Guild from " +
-                oldCharacter.getGuildName() +
-                " to " +
-                newCharacter.getGuildName();
+    public Register process(Character oldCharacter, Character newCharacter) {
+        return Register.builder()
+                .type(RegisterType.CHARACTER_GUILD_UPDATED)
+                .worldName(newCharacter.getWorldName())
+                .character(newCharacter)
+                .newValue(newCharacter.getLevel().toString())
+                .oldValue(oldCharacter.getLevel().toString())
+                .build();
     }
 }
