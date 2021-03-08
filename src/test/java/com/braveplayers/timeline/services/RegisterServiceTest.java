@@ -7,7 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -29,11 +32,24 @@ public class RegisterServiceTest {
     @Test
     public void save_MonoOfRegister() {
         Register entity = Register.builder().build();
-        when(repository.save(entity)).thenReturn(Mono.just(entity));
+        Mono<Register> monoEntity = Mono.just(entity);
+        when(repository.save(entity)).thenReturn(monoEntity);
 
-        Register entitySaved = service.save(entity).toFuture().get();
+        Mono<Register> monoEntitySaved = service.save(entity);
 
-        assertEquals(entity, entitySaved);
+        assertEquals(monoEntity, monoEntitySaved);
         verify(repository, times(1)).save(entity);
+    }
+
+    @SneakyThrows
+    @Test
+    public void findAllByWorld_FluxOfRegister() {
+        Flux<Register> fluxEntity = Flux.just(mock(Register.class));
+        when(repository.findAll()).thenReturn(fluxEntity);
+
+        Flux<Register> fluxEntityFound = service.findAll();
+
+        assertEquals(fluxEntity, fluxEntityFound);
+        verify(repository, times(1)).findAll();
     }
 }

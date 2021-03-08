@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,6 +21,7 @@ public class Register {
     @Id
     private String id;
     private RegisterType type;
+    private LocalDateTime dateTime = LocalDateTime.now();
     private String world;
     private Character character;
     private String oldValue;
