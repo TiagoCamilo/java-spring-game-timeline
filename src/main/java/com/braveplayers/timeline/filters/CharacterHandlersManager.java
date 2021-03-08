@@ -6,20 +6,20 @@ import com.braveplayers.timeline.services.RegisterService;
 
 import java.util.List;
 
-public class CharacterFilterManager {
-    private final List<CharacterFilter> filters;
+public class CharacterHandlersManager {
+    private final List<CharacterHandler> handlers;
     private final RegisterService registerService;
 
-    public CharacterFilterManager(RegisterService registerService, List<CharacterFilter> filters) {
-        this.filters = filters;
+    public CharacterHandlersManager(RegisterService registerService, List<CharacterHandler> handlers) {
+        this.handlers = handlers;
         this.registerService = registerService;
     }
 
     public void execute(Character oldCharacter, Character newCharacter) {
-        filters
+        handlers
                 .stream()
-                .filter(filter -> filter.support(oldCharacter, newCharacter))
-                .map(filter -> filter.process(oldCharacter, newCharacter))
+                .filter(handler -> handler.support(oldCharacter, newCharacter))
+                .map(handler -> handler.process(oldCharacter, newCharacter))
                 .map(processResult -> Register
                         .builder()
                         .character(newCharacter)

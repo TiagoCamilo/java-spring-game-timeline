@@ -1,7 +1,7 @@
 package com.braveplayers.timeline.consumers;
 
 import com.braveplayers.timeline.dtos.CharacterUpdatedMessageDto;
-import com.braveplayers.timeline.filters.CharacterFilterManager;
+import com.braveplayers.timeline.filters.CharacterHandlersManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class CharacterUpdatedConsumer {
 
-    private final CharacterFilterManager characterFilterManager;
+    private final CharacterHandlersManager characterHandlersManager;
 
-    public CharacterUpdatedConsumer(CharacterFilterManager characterFilterManager) {
-        this.characterFilterManager = characterFilterManager;
+    public CharacterUpdatedConsumer(CharacterHandlersManager characterHandlersManager) {
+        this.characterHandlersManager = characterHandlersManager;
     }
 
     @SneakyThrows
@@ -23,7 +23,7 @@ public class CharacterUpdatedConsumer {
         CharacterUpdatedMessageDto characterUpdatedMessageDto = objectMapper.readValue(message, CharacterUpdatedMessageDto.class);
         System.out.println(characterUpdatedMessageDto);
 
-        characterFilterManager.execute(characterUpdatedMessageDto.getOldCharacter(), characterUpdatedMessageDto.getNewCharacter());
+        characterHandlersManager.execute(characterUpdatedMessageDto.getOldCharacter(), characterUpdatedMessageDto.getNewCharacter());
     }
 
 }

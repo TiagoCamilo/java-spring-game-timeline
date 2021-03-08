@@ -2,17 +2,17 @@ package com.braveplayers.timeline.filters;
 
 import com.braveplayers.timeline.entities.Character;
 
-public class CharacterGuildNameFilter implements CharacterFilter {
+public class CharacterLevelHandler implements CharacterHandler {
     @Override
     public boolean support(Character oldCharacter, Character newCharacter) {
-        return !oldCharacter.getGuildName().equals(newCharacter.getGuildName());
+        return !oldCharacter.getLevel().equals(newCharacter.getLevel());
     }
 
     @Override
     public String process(Character oldCharacter, Character newCharacter) {
-        return "Changed Guild from " +
-                oldCharacter.getGuildName() +
+        return "Changed Level from " +
+                oldCharacter.getLevel() +
                 " to " +
-                newCharacter.getGuildName();
+                newCharacter.getLevel();
     }
 }
