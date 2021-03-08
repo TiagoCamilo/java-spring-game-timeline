@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class FiltersConfig {
+public class HandlersConfig {
 
     @Bean
-    public CharacterHandlersManager characterUpdatedFilterManager(RegisterService registerService) {
+    public CharacterHandlersManager characterHandlersManager(RegisterService registerService) {
         return new CharacterHandlersManager(
                 registerService,
                 List.of(
