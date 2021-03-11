@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping("/timeline")
+@RequestMapping("/")
 public class RegisterControllers {
     private final RegisterService service;
 
@@ -29,14 +29,5 @@ public class RegisterControllers {
     @PostMapping
     public Mono<Register> save(@RequestBody Register register) {
         return service.save(register);
-    }
-
-    @GetMapping(value = "/infinite", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
-    public Flux<Integer> infinite() {
-        return Flux.
-                fromStream(
-                        Stream.generate(new Random()::nextInt)
-                )
-                .delayElements(Duration.ofSeconds(1));
     }
 }
