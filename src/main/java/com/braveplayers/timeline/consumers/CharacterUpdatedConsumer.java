@@ -17,7 +17,7 @@ public class CharacterUpdatedConsumer {
     }
 
     @SneakyThrows
-    @RabbitListener(queues = {"game_queue"})
+    @RabbitListener(queues = {"${messaging.queue.name}"})
     public void receive(String message) {
         ObjectMapper objectMapper = new ObjectMapper();
         CharacterUpdatedMessageDto characterUpdatedMessageDto = objectMapper.readValue(message, CharacterUpdatedMessageDto.class);

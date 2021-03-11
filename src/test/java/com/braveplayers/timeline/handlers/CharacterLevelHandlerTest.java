@@ -34,7 +34,7 @@ public class CharacterLevelHandlerTest {
     }
 
     @Test
-    public void process_Register(){
+    public void process_Register() {
         Character oldCharacter = Character.builder().level(1).build();
         Character newCharacter = Character.builder().level(2).build();
 
