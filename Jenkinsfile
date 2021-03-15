@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh './mvnw dockerfile:build'
+                script {
+                    def customImage = docker.build("camilotiago/game-timeline:${env.BUILD_ID}")
+                }
             }
         }
         stage('Push Docker image') {
