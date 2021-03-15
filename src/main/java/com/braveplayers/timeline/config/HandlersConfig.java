@@ -7,8 +7,6 @@ import com.braveplayers.timeline.services.RegisterService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
 @Configuration
 public class HandlersConfig {
 
@@ -16,10 +14,9 @@ public class HandlersConfig {
     public CharacterHandlersManager characterHandlersManager(RegisterService registerService) {
         return new CharacterHandlersManager(
                 registerService,
-                List.of(
-                        new CharacterLevelHandler()
-                        , new CharacterGuildNameHandler()
-                ));
+                new CharacterLevelHandler()
+                , new CharacterGuildNameHandler()
+        );
     }
 
 }
