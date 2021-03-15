@@ -10,7 +10,7 @@ public class CharacterHandlersManager {
     private final List<CharacterHandler> handlers;
     private final RegisterService registerService;
 
-    public CharacterHandlersManager(RegisterService registerService, CharacterHandler...handlers) {
+    public CharacterHandlersManager(RegisterService registerService, CharacterHandler... handlers) {
         this.handlers = Arrays.asList(handlers.clone());
         this.registerService = registerService;
     }
