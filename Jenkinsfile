@@ -6,5 +6,10 @@ pipeline {
                 sh './mvnw compile'
             }
         }
+        stage('Test') {
+            steps {
+                sh './mvnw test'
+            }
+        }
     }
 }
