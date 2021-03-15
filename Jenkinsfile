@@ -16,7 +16,7 @@ pipeline {
                 junit '**/target/*.xml'
             }
             failure {
-                mail to: camilo.tiago@gmail.com, subject: 'Game Timeline - Pipeline failed'
+                mail to: 'camilo.tiago@gmail.com', subject: 'Game Timeline - Pipeline failed'
             }
         }
     }
