@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        imagename = "camilotiago/game-timeline"
+        dockerImage = ''
+    }
     agent any
     stages {
         stage('Build') {
@@ -14,7 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def customImage = docker.build("camilotiago/game-timeline:${env.BUILD_ID}")
+                  dockerImage = docker.build imagename
                 }
             }
         }
