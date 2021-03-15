@@ -1,8 +1,4 @@
 pipeline {
-    environment {
-        imagename = "camilotiago/game-timeline"
-        dockerImage = ''
-    }
     agent any
     stages {
         stage('Build') {
@@ -17,9 +13,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                  dockerImage = docker.build imagename
-                }
+                sh './mvnw dockerfile:build'
             }
         }
         stage('Push Docker image') {
