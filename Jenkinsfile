@@ -10,14 +10,6 @@ pipeline {
             steps {
                 sh './mvnw test'
             }
-            post {
-                always {
-                    junit '**/target/*.xml'
-                }
-                failure {
-                    mail to: 'camilo.tiago@gmail.com', subject: 'Game Timeline - Pipeline failed'
-                }
-            }
         }
     }
 }
